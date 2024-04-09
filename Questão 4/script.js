@@ -1,13 +1,20 @@
-let populacaoA = 80000;
-let populacaoB = 200000;
-const taxaCrescimentoA = 0.03; // 3%
-const taxaCrescimentoB = 0.015; // 1.5%
-let anos = 0;
-
-while (populacaoA <= populacaoB) {
-    populacaoA *= (1 + taxaCrescimentoA);
-    populacaoB *= (1 + taxaCrescimentoB);
-    anos++;
+function calcularFatorial(numero) {
+    let fatorial = 1;
+    for (let i = numero; i >= 1; i--) {
+        fatorial *= i;
+    }
+    return fatorial;
 }
 
-console.log(`Serão necessários ${anos} anos para que a população do país A ultrapasse a população do país B.`);
+function main() {
+    const numero = parseInt(prompt("Digite um número inteiro para calcular o fatorial: "));
+    
+    if (!isNaN(numero) && numero >= 0) {
+        const fatorial = calcularFatorial(numero);
+        console.log(`${numero}! = ${fatorial}`);
+    } else {
+        console.log("Por favor, insira um número inteiro válido.");
+    }
+}
+
+main();

@@ -1,21 +1,21 @@
-const readline = require('readline');
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-function pedirNota() {
-  rl.question('Digite uma nota entre zero e dez: ', (nota) => {
-    nota = parseFloat(nota);
-    if (isNaN(nota) || nota < 0 || nota > 10) {
-      console.log('Valor inválido. Por favor, digite uma nota entre zero e dez.');
-      pedirNota();
-    } else {
-      console.log('Nota válida:', nota);
-      rl.close();
+function calcularPotencia(base, expoente) {
+    let resultado = 1;
+    for (let i = 0; i < expoente; i++) {
+        resultado *= base;
     }
-  });
+    return resultado;
 }
 
-pedirNota();
+function main() {
+    const base = parseFloat(prompt("Digite a base: "));
+    const expoente = parseInt(prompt("Digite o expoente: "));
+    
+    if (!isNaN(base) && !isNaN(expoente)) {
+        const resultado = calcularPotencia(base, expoente);
+        console.log(`${base} elevado a ${expoente} é igual a ${resultado}`);
+    } else {
+        console.log("Por favor, insira números válidos.");
+    }
+}
+
+main();

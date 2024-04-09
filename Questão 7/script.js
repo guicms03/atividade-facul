@@ -1,29 +1,27 @@
-const readline = require('readline');
+function calcularFatorial(numero) {
+    let fatorial = 1;
+    for (let i = numero; i >= 1; i--) {
+        fatorial *= i;
+    }
+    return fatorial;
+}
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+function main() {
+    while (true) {
+        let numero = parseInt(prompt("Digite um número inteiro positivo menor que 16 para calcular o fatorial (ou -1 para sair): "));
+        
+        if (numero === -1) {
+            console.log("Programa encerrado.");
+            break;
+        }
 
-let numeros = [];
+        if (!isNaN(numero) && numero >= 0 && numero < 16) {
+            const fatorial = calcularFatorial(numero);
+            console.log(`${numero}! = ${fatorial}`);
+        } else {
+            console.log("Por favor, insira um número inteiro positivo menor que 16 válido.");
+        }
+    }
+}
 
-rl.question('Digite o primeiro número: ', (numero1) => {
-  rl.question('Digite o segundo número: ', (numero2) => {
-    rl.question('Digite o terceiro número: ', (numero3) => {
-      rl.question('Digite o quarto número: ', (numero4) => {
-        rl.question('Digite o quinto número: ', (numero5) => {
-          numeros.push(parseFloat(numero1));
-          numeros.push(parseFloat(numero2));
-          numeros.push(parseFloat(numero3));
-          numeros.push(parseFloat(numero4));
-          numeros.push(parseFloat(numero5));
-
-          const maiorNumero = Math.max(...numeros);
-          console.log(`O maior número é: ${maiorNumero}`);
-
-          rl.close();
-        });
-      });
-    });
-  });
-});
+main();

@@ -1,32 +1,27 @@
-const readline = require('readline');
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-rl.question('Digite o primeiro número inteiro: ', (numero1) => {
-  rl.question('Digite o segundo número inteiro: ', (numero2) => {
-    numero1 = parseInt(numero1);
-    numero2 = parseInt(numero2);
-
-    if (isNaN(numero1) || isNaN(numero2)) {
-      console.log('Por favor, insira números inteiros válidos.');
-      rl.close();
-      return;
-    }
-
-    const inicio = Math.min(numero1, numero2);
-    const fim = Math.max(numero1, numero2);
-
-    console.log(`Números no intervalo entre ${inicio} e ${fim}:`);
+function calcularMedia(notas) {
     let soma = 0;
-    for (let i = inicio; i <= fim; i++) {
-      console.log(i);
-      soma += i;
+    for (let nota of notas) {
+        soma += nota;
+    }
+    return soma / notas.length;
+}
+
+function main() {
+    const quantidade = parseInt(prompt("Digite a quantidade de notas: "));
+    const notas = [];
+
+    for (let i = 0; i < quantidade; i++) {
+        const nota = parseFloat(prompt(`Digite a ${i + 1}ª nota:`));
+        if (!isNaN(nota)) {
+            notas.push(nota);
+        } else {
+            console.log("Por favor, insira uma nota válida.");
+            return;
+        }
     }
 
-    console.log(`A soma dos números no intervalo é: ${soma}`);
-    rl.close();
-  });
-});
+    const media = calcularMedia(notas);
+    console.log(`A média aritmética das notas é: ${media}`);
+}
+
+main();

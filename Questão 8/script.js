@@ -1,32 +1,27 @@
-const readline = require('readline');
+function verificarPrimo(numero) {
+    if (numero <= 1) {
+        return false;
+    }
+    for (let i = 2; i <= Math.sqrt(numero); i++) {
+        if (numero % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+function main() {
+    const numero = parseInt(prompt("Digite um número inteiro para verificar se é primo: "));
+    
+    if (!isNaN(numero)) {
+        if (verificarPrimo(numero)) {
+            console.log(`${numero} é um número primo.`);
+        } else {
+            console.log(`${numero} não é um número primo.`);
+        }
+    } else {
+        console.log("Por favor, insira um número inteiro válido.");
+    }
+}
 
-let numeros = [];
-
-rl.question('Digite o primeiro número: ', (numero1) => {
-  rl.question('Digite o segundo número: ', (numero2) => {
-    rl.question('Digite o terceiro número: ', (numero3) => {
-      rl.question('Digite o quarto número: ', (numero4) => {
-        rl.question('Digite o quinto número: ', (numero5) => {
-          numeros.push(parseFloat(numero1));
-          numeros.push(parseFloat(numero2));
-          numeros.push(parseFloat(numero3));
-          numeros.push(parseFloat(numero4));
-          numeros.push(parseFloat(numero5));
-
-          const soma = numeros.reduce((total, num) => total + num, 0);
-          const media = soma / numeros.length;
-
-          console.log(`A soma dos números é: ${soma}`);
-          console.log(`A média dos números é: ${media}`);
-
-          rl.close();
-        });
-      });
-    });
-  });
-});
+main();
