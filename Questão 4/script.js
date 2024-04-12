@@ -1,12 +1,12 @@
-function realizarTransferencia(saldoOrigem, saldoDestino, valorTransferencia, limiteTransferencia) {
-    if (valorTransferencia <= saldoOrigem && valorTransferencia <= limiteTransferencia) {
-      saldoOrigem -= valorTransferencia;
-      saldoDestino += valorTransferencia;
-      console.log("Transferência realizada com sucesso");
-    } else if (valorTransferencia > saldoOrigem) {
-      console.log("Saldo insuficiente na origem");
+function tribonacci(N) {
+    if (N === 0) {
+        return 0;
+    } else if (N === 1 || N === 2) {
+        return 1;
     } else {
-      console.log("Limite de transferência excedido");
+        return tribonacci(N - 1) + tribonacci(N - 2) + tribonacci(N - 3);
     }
-  }
-  
+}
+
+let resultadoTribonacci = tribonacci(6);
+console.log("O 6-ésimo número da sequência de Tribonacci é:", resultadoTribonacci);
