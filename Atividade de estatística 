@@ -1,0 +1,32 @@
+import numpy as np
+
+notas_privadas = [7.5, 8, 9, 7, 7.5, 6, 10, 7, 8.5, 10, 9, 3, 7, 2.5, 2, 5, 3, 6, 5, 4, 2, 8, 5, 7, 3, 1.5, 8, 9, 9, 7, 8, 7]
+notas_publicas = [4, 3, 9, 5, 3, 4, 2, 1.5, 5, 4, 7, 8, 8, 7, 6, 8, 7.5, 6]
+
+media_privadas = np.mean(notas_privadas)
+desvio_padrao_privadas = np.std(notas_privadas)
+mediana_privadas = np.median(notas_privadas)
+minimo_privadas = np.min(notas_privadas)
+maximo_privadas = np.max(notas_privadas)
+
+media_publicas = np.mean(notas_publicas)
+desvio_padrao_publicas = np.std(notas_publicas)
+mediana_publicas = np.median(notas_publicas)
+minimo_publicas = np.min(notas_publicas)
+maximo_publicas = np.max(notas_publicas)
+
+print("Escolas Privadas:")
+print("Quantidade de alunos:", len(notas_privadas), "alunos")
+print("Média das notas:", round(media_privadas, 2))
+print("Desvio padrão das notas:", round(desvio_padrao_privadas, 2))
+print("Mediana das notas:", mediana_privadas)
+print("Mínimo das notas:", minimo_privadas)
+print("Máximo das notas:", maximo_privadas)
+print("\n")
+print("Escolas Públicas:")
+print("Quantidade de alunos:", len(notas_publicas), "alunos")
+print("Média das notas:", round(media_publicas, 2))
+print("Desvio padrão das notas:", round(desvio_padrao_publicas, 2))
+print("Mediana das notas:", mediana_publicas)
+print("Mínimo das notas:", minimo_publicas)
+print("Máximo das notas:", maximo_publicas)
